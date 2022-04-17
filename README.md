@@ -42,3 +42,6 @@ docker compose -f docker-compose.yml -f docker-compose.production.yml down -v
 
 The development build creates an empty `node_modules` directory in your repo.  It's annoying.
 
+`uat` build mirrors production and, therefore, isn't included in instructions.  Likely more work could be done here.
+
+
