@@ -3,6 +3,8 @@
 `hello world` node app to test docker / k8s deployment.
 The development environment allows for interactive applicaiton changes.
 
+After running `docker compose...`, view the app by navigating to `localhost:3000` in your browser.
+
 ## Requirements
 
 * `docker`
