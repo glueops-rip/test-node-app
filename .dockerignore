@@ -1,0 +1,11 @@
+# docker
+Dockerfile
+.dockerignore
+docker-compose*
+
+# git
+.git
+.gitignore
+
+# dev
+*.swp
