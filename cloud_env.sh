@@ -1,5 +1,3 @@
-echo $(printenv)
-
-sed -i 's/%USERNAME%/'$USERNAME'/g' app.yaml
-sed -i 's/%PASSWORD%/'$PASSWORD'/g' app.yaml
-
+while IFS='=' read -r -d '' n v; do
+    printf '%s: "%s"\n' "$n" "$v"
+done < <(env -0)
