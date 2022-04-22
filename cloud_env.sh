@@ -1,4 +1,4 @@
-echo $(printenv | grep ^_)
+echo $(printenv)
 
 sed -i 's/%USERNAME%/'$USERNAME'/g' app.yaml
 sed -i 's/%PASSWORD%/'$PASSWORD'/g' app.yaml
