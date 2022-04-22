@@ -1,4 +1,6 @@
 runtime: nodejs16
 service: default
 main: node index.js 
-
+env_variables:
+  USERNAME: "%USERNAME%"
+  PASSWORD: "%PASSWORD%"
