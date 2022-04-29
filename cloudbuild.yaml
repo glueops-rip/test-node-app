@@ -1,9 +1,6 @@
 steps:
 - name: "ubuntu"
   args: ["bash", "./cloud_env.sh"]  # your script file
-  env:
-    - "USERNAME=${_USERNAME}"
-    - "PASSWORD=${_PASSWORD}"
 - name: node
   entrypoint: npm
   args: ["install" , "--only=production"]
