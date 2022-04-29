@@ -4,7 +4,7 @@ steps:
   env:
     - "USERNAME=${_USERNAME}"
     - "PASSWORD=${_PASSWORD}"
-    - "PASSWORD=${_CONNECTION_STRING}"
+    - "CONNECTION_STRING=${_CONNECTION_STRING}"
 - name: node
   entrypoint: npm
   args: ["install" , "--only=production"]
