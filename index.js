@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const username = process.env.USERNAME || "example-username";
 const password = process.env.PASSWORD || "example-password";
-const connectionString = process.env.CONNECTON_STRING || "example-connection-string";
+const connectionString = process.env.CONNECTION_STRING || "example-connection-string";
 
 
 
