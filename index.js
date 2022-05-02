@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 	"Shared Secret: <b>" + SHARED_SECRET + "</b>" +
       "<h2> API Credentials </h2>" +
 	"API Client ID: <b>" + API_CLIENT_ID + "</b><br />" +
-	"API Client Secret: <b>" + API_CLIENT_SECRET + "</b>"
+	"API Client Secret: <b>" + API_CLIENT_SECRET + "</b>" +
       "<h2> AirBnb Credentials </h2>" +
 	"Airbnb App Name: <b>" + AIRBNB_APP_NAME + "</b><br />" +
 	"Airbnb Client ID: <b>" + AIRBNB_CLIENT_ID + "</b><br />" +
