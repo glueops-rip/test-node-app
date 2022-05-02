@@ -12,7 +12,18 @@ const API_CLIENT_SECRET = process.env.API_CLIENT_SECRET || "default-api-client-s
 
 
 app.get("/", (req, res) => {
-  res.send("<h1>GlueOps init!</h1><h2><br /> Username: " + username + "<br /> Password: " + password + "<br /> Connection String: " + connectionString + "<br />  Shared Secret: " + SHARED_SECRET + "<br />  API Client ID: " + API_CLIENT_ID + "<br />  API Client Secret: " + API_CLIENT_SECRET + "</h2>");
+  res.send(
+    "<h1>GlueOps init</h1>" +
+      "<h2> User Credentials</h2>" +
+	"<p>Username: <b>" + username + "</b><br />" +
+	"Password: <b>" + password + "</b>" +
+      "<h2> DB Credentials </h2>" +
+	"Connection String: <b>" + connectionString + "</b><br />" +
+	"Shared Secret: <b>" + SHARED_SECRET + "</b>" +
+      "<h2> API Credentials </h2>" +
+	"API Client ID: <b>" + API_CLIENT_ID + "</b><br />" +
+	"API Client Secret: <b>" + API_CLIENT_SECRET + "</b>"
+  );
 });
 
 const port = process.env.PORT || 3000;
