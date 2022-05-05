@@ -1,9 +1,6 @@
 const express = require("express");
 
 const app = express();
-const username = process.env.USERNAME || "default-username";
-const password = process.env.PASSWORD || "default-password";
-const connectionString = process.env.CONNECTION_STRING || "default-connection-string";
 const API_CLIENT_ID = process.env.API_CLIENT_ID || "default-api-client-id";
 const API_CLIENT_SECRET = process.env.API_CLIENT_SECRET || "default-api-client-secret";
 
