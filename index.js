@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
     "<h1>GlueOps init</h1>" +
       "<h2> API Credentials </h2>" +
 	"API Client ID: <b>" + API_CLIENT_ID + "</b><br />" +
-	"API Client Secret: <b>" + API_CLIENT_SECRET + "</b>" +
+	"API Client Secret: <b>" + API_CLIENT_SECRET + "</b>"
   );
 });
 
