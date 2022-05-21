@@ -1,4 +1,4 @@
 runtime: nodejs16
-service: default
+service: test-node-app
 main: node index.js 
 env_variables:
