@@ -11,7 +11,7 @@ const HUBSPOT_API_KEY = process.env.HUBSPOT_API_KEY || "default-hubspot-api-key"
 
 app.get("/", (req, res) => {
   res.send(
-    "<h1>GlueOps init</h1>" +
+    "<h1>GlueOps May 21, 2022</h1>" +
       "<h2> API Credentials </h2>" +
 	"API Client ID: <b>" + API_CLIENT_ID + "</b><br />" +
 	"API Client Secret: <b>" + API_CLIENT_SECRET + "</b>" +
