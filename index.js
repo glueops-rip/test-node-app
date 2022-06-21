@@ -4,14 +4,14 @@ const app = express();
 const DB_USER = process.env.DB_USER || "missing-parameter";
 const DB_NAME = process.env.DB_NAME || "missing-parameter";
 const DB_PASS = process.env.DB_PASS || "missing-parameter";
-const INSTANCE_CONNECTION_NAME = process.env.INSTANCE_CONNECTION_NAME | "missing-parameter"
+const HOST = process.env.HOST | "missing-parameter"
 
 
 const { Client } = require('pg')
 
 const client = new Client({
   user: DB_USER,
-  host: INSTANCE_CONNECTION_NAME,
+  host: HOST,
   database: DB_NAME,
   password: DB_PASS,
   port: 3211,
