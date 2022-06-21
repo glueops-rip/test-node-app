@@ -4,35 +4,38 @@ const app = express();
 const DB_USER = process.env.DB_USER || "missing-parameter";
 const DB_NAME = process.env.DB_NAME || "missing-parameter";
 const DB_PASS = process.env.DB_PASS || "missing-parameter";
-const HOST = process.env.HOST | "missing-parameter"
+const HOST = process.env.HOST || "missing-parameter"
 
 
-const { Client } = require('pg')
+const { Client } = require('pg');
 
 const client = new Client({
   user: DB_USER,
   host: HOST,
   database: DB_NAME,
   password: DB_PASS,
-  port: 3211,
+  port: 5432,
 })
 
-client.connect()
+client.connect();
 
-client.query('SELECT NOW()', (err, res) => {
-  console.log(err, res)
-  client.end()
+client.query('SELECT NOW() as now', (err, res) => {
+  if (err) {
+    console.error(err)
+  } else {
+    console.log('stuff')
+    console.log(res.rows[0])
+  }
+  client.end();
 })
 
 app.get("/", (req, res) => {
   res.send(
-    "<h1>GlueOps May 21, 2022</h1>" +
-      "<h2> API Credentials </h2>" +
-	"API Client ID: <b>" + API_CLIENT_ID + "</b><br />" +
-	"API Client Secret: <b>" + API_CLIENT_SECRET + "</b>" +
-      "<h2> Hubspot Credentials </h2>" +
-	"Hubspot Sync Enabled: <b>" + HUBSPOT_SYNC_ENABLED + "</b><br />" +
-	"Hubspot Api Key: <b>" + HUBSPOT_API_KEY + "</b>"
+    "<h1>GlueOps June 21, 2022</h1>" +
+      "<h2> DB </h2>" +
+	"DB: <b>" + DB_NAME + "</b><br />" +
+      "<h2> IP </h2>" +
+	"Host IP: <b>" + "TBD" + "</b><br />"
   );
 });
 
