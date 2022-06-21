@@ -1,13 +1,28 @@
 const express = require("express");
 
 const app = express();
-const API_CLIENT_ID = process.env.API_CLIENT_ID || "default-api-client-id";
-const API_CLIENT_SECRET = process.env.API_CLIENT_SECRET || "default-api-client-secret";
-const HUBSPOT_SYNC_ENABLED = process.env.HUBSPOT_SYNC_ENABLED || "default-hubspot-sync-enabled";
-const HUBSPOT_API_KEY = process.env.HUBSPOT_API_KEY || "default-hubspot-api-key"
+const DB_USER = process.env.DB_USER || "missing-parameter";
+const DB_NAME = process.env.DB_NAME || "missing-parameter";
+const DB_PASS = process.env.DB_PASS || "missing-parameter";
+const INSTANCE_CONNECTION_NAME = process.env.INSTANCE_CONNECTION_NAME | "missing-parameter"
 
 
+const { Client } = require('pg')
 
+const client = new Client({
+  user: DB_USER,
+  host: INSTANCE_CONNECTION_NAME,
+  database: DB_NAME,
+  password: DB_PASS,
+  port: 3211,
+})
+
+client.connect()
+
+client.query('SELECT NOW()', (err, res) => {
+  console.log(err, res)
+  client.end()
+})
 
 app.get("/", (req, res) => {
   res.send(
