@@ -2,5 +2,5 @@ runtime: nodejs16
 service: test-node-app
 main: node index.js 
 vpc_access_connector:
- name: vpc-access-connector
+ name: projects/glueops-13-production/locations/us-central1/connectors/vpc-access-connector
 env_variables:
