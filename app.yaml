@@ -1,4 +1,6 @@
 runtime: nodejs16
 service: test-node-app
 main: node index.js 
+vpc_access_connector:
+ name: vpc-access-connector
 env_variables:
