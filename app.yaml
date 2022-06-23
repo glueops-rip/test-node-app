@@ -5,3 +5,4 @@ vpc_access_connector:
  name: projects/glueops-13-production/locations/us-central1/connectors/vpc-access-connector
  egress_setting: all-traffic
 env_variables:
+  GAE_USE_SOCKETS_HTTPLIB : 'anyvalue'
