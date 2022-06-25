@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
   );
 });
 
-app.get('/database', (request, response) => {
+app.get('/database', async (request, response) => {
     await client.connect()
     client.query('SELECT * FROM pg_catalog.pg_tables', (error, result) => {
         if (error) throw error;
