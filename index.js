@@ -19,8 +19,6 @@ const client = new Client ({
   database: DB_NAME
 })
 
-client.connect()
-
 
 
 
@@ -33,6 +31,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/database', (request, response) => {
+    await client.connect()
     client.query('SELECT * FROM pg_catalog.pg_tables', (error, result) => {
         if (error) throw error;
  
