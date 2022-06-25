@@ -1,24 +1,49 @@
+fetch = require('node-fetch');
+
 const express = require("express");
 
 const app = express();
-const API_CLIENT_ID = process.env.API_CLIENT_ID || "default-api-client-id";
-const API_CLIENT_SECRET = process.env.API_CLIENT_SECRET || "default-api-client-secret";
-const HUBSPOT_SYNC_ENABLED = process.env.HUBSPOT_SYNC_ENABLED || "default-hubspot-sync-enabled";
-const HUBSPOT_API_KEY = process.env.HUBSPOT_API_KEY || "default-hubspot-api-key"
+const DB_USER = process.env.DB_USER || "missing-parameter";
+const DB_NAME = process.env.DB_NAME || "missing-parameter";
+const DB_PASS = process.env.DB_PASS || "missing-parameter";
+const HOST = process.env.HOST || "missing-parameter"
+
+
+const { Client } = require('pg')
+
+const client = new Client ({
+  user: DB_USER,
+  password: DB_PASS,
+  host: HOST,
+  port: 5432,
+  database: DB_NAME
+})
+
+client.connect()
 
 
 
 
 app.get("/", (req, res) => {
   res.send(
-    "<h1>GlueOps May 21, 2022</h1>" +
-      "<h2> API Credentials </h2>" +
-	"API Client ID: <b>" + API_CLIENT_ID + "</b><br />" +
-	"API Client Secret: <b>" + API_CLIENT_SECRET + "</b>" +
-      "<h2> Hubspot Credentials </h2>" +
-	"Hubspot Sync Enabled: <b>" + HUBSPOT_SYNC_ENABLED + "</b><br />" +
-	"Hubspot Api Key: <b>" + HUBSPOT_API_KEY + "</b>"
+    "<h1>GlueOps June 21, 2022</h1>" +
+      "<h2> DB </h2>" +
+	"DB: <b>" + DB_NAME + "</b><br />"
   );
+});
+
+app.get('/database', (request, response) => {
+    client.query('SELECT * FROM pg_catalog.pg_tables', (error, result) => {
+        if (error) throw error;
+ 
+        response.send(result.rows[0]);
+    });
+});
+
+app.get('/ip', (request, response) => {
+    fetch('https://api.ipify.org/?format=json')
+    .then(res => res.text())
+    .then(text => response.send(text));
 });
 
 const port = process.env.PORT || 3000;
